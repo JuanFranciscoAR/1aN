@@ -25,11 +25,6 @@ development:
   <<: *default
   database: BlockBuster_development
 
-  username: postgres
-
-  password: juan380
-
-  port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -46,12 +41,7 @@ development:
 test:
   <<: *default
   database: BlockBuster_test
-  
-  username: postgres
 
-  password: juan380
-
-  port: 5432
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -73,8 +63,7 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
 production:
   <<: *default
-  database: BlockBuster_production
-  username: BlockBuster
-  password: <%= ENV["BLOCKBUSTER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
